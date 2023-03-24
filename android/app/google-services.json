@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "487821889152",
+    "project_id": "homework-mobileapp-sofija",
+    "storage_bucket": "homework-mobileapp-sofija.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:487821889152:android:605bf548ce2df9e6022065",
+        "android_client_info": {
+          "package_name": "com.example.homework2"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "487821889152-2h9b9lf96j44o7vi7su3pmn09n6hb9s4.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDdoJ5iyC_-ZBneKLGwKTslI-FX5wJRvVs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "487821889152-2h9b9lf96j44o7vi7su3pmn09n6hb9s4.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

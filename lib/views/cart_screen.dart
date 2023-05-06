@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:homework2/models/recipe_model.dart';
 
+import '../widgets/cart_recipe_card.dart';
 import '../widgets/custom_appbar.dart';
 import '../widgets/custom_navbar.dart';
 
@@ -40,7 +41,24 @@ class CartScreen extends StatelessWidget {
                 ))
               ],
             ),
+            SizedBox(height: 10,),
             CartRecipeCard(recipe: Recipe.recipes[0],),
+            CartRecipeCard(recipe: Recipe.recipes[1]),
+            const Divider(
+              thickness: 2
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Text('Some text', style: Theme.of(context).textTheme.headlineSmall,)
+              ],
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Text('Some text', style: Theme.of(context).textTheme.headlineSmall,)
+              ],
+            ),
           ],
         ),
       ),
@@ -48,33 +66,3 @@ class CartScreen extends StatelessWidget {
   }
 }
 
-
-class CartRecipeCard extends StatelessWidget {
-
-  final Recipe recipe;
-
-  const CartRecipeCard({super.key, required this.recipe});
-
-  @override
-  Widget build(BuildContext context) {
-    return Row(
-      children: [
-        Image.network(recipe.imageUrl,
-        width: 100,
-        height: 80,
-        fit: BoxFit.cover,
-      ),
-      const SizedBox(
-        width: 10,
-      ),
-      Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Text(recipe.name, style: Theme.of(context).textTheme.headlineSmall,),
-          Text(recipe.description)
-        ],
-      )
-      ],
-    );
-  }
-}

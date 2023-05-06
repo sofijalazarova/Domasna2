@@ -15,14 +15,13 @@ class CustomAppBar extends StatelessWidget with PreferredSizeWidget{
       backgroundColor: const Color(0xFFE1D0BF),
       elevation: 0,
       title: Container(
-        //color: Colors.black,
         padding: const EdgeInsets.symmetric(
           horizontal: 20,
           vertical: 10,
         ),
-        child: const Text(
-          'Meal of the day',
-          style: TextStyle(
+        child:  Text(
+          title,
+          style: const TextStyle(
             color: Colors.black,
             fontSize: 24,
             fontFamily: 'Avenir',

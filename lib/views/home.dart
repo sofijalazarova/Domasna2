@@ -33,7 +33,7 @@ class HomeScreen extends StatelessWidget {
           height: double.infinity,
         ),      
         Scaffold(
-        appBar: const CustomAppBar(title: 'Title'),
+        appBar: const CustomAppBar(title: 'Meal of the day'),
         bottomNavigationBar: const CustomNavBar(),
         body: SingleChildScrollView (
           child: Container(

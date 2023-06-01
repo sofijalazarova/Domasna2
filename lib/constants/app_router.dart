@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:homework2/constants/routes.dart';
 import 'package:homework2/models/recipe_model.dart';
+import 'package:homework2/views/new_recipe_screen.dart';
+import 'package:homework2/views/profile_screen.dart';
 
 import '../models/category_model.dart';
 import '../views/cart_screen.dart';
@@ -25,7 +28,11 @@ class AppRouter {
         case WishlistScreen.routeName:
           return WishlistScreen.route();
         case CatalogScreen.routeName:
-          return CatalogScreen.route(category: settings.arguments as Category);        
+          return CatalogScreen.route(category: settings.arguments as Category);     
+        case AddRecipeView.routeName:
+          return AddRecipeView.route();  
+        case UserPage.routeName:
+          return UserPage.route();
         default:
           return _errorRoute();
       }

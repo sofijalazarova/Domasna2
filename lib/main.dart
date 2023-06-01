@@ -114,7 +114,7 @@ class HomePage extends StatelessWidget {
             } else if (user != null && !user.isEmailVerified) {
               return const VerifyEmailView();
             } else {
-              return const LoginView();
+              return const HomeScreen();
             }
           default:
             return const CircularProgressIndicator();

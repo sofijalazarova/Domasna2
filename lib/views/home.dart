@@ -8,6 +8,7 @@ import '../widgets/custom_navbar.dart';
 import '../widgets/hero_carousel_card.dart';
 import '../widgets/recipe_carousel.dart';
 import '../widgets/section_title.dart';
+import 'new_recipe_screen.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -25,17 +26,18 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Stack(
-      children: [
-        Image.network('https://images.unsplash.com/photo-1546069901-ba9599a7e63c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxleHBsb3JlLWZlZWR8MXx8fGVufDB8fHx8&w=1000&q=80',
-          fit: BoxFit.contain,
-          width: double.infinity,
-          height: double.infinity,
-        ),      
-        Scaffold(
+  return Stack(
+    children: [
+      Image.network(
+        'https://images.unsplash.com/photo-1546069901-ba9599a7e63c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxleHBsb3JlLWZlZWR8MXx8fGVufDB8fHx8&w=1000&q=80',
+        fit: BoxFit.contain,
+        width: double.infinity,
+        height: double.infinity,
+      ),
+      Scaffold(
         appBar: const CustomAppBar(title: 'Meal of the day'),
         bottomNavigationBar: const CustomNavBar(),
-        body: SingleChildScrollView (
+        body: SingleChildScrollView(
           child: Container(
             decoration: const BoxDecoration(
               image: DecorationImage(
@@ -48,31 +50,50 @@ class HomeScreen extends StatelessWidget {
                 Container(
                   child: CarouselSlider(
                     options: CarouselOptions(
-                    aspectRatio: 1.5,
-                    viewportFraction: 0.9,
-                    enlargeCenterPage: true,
-                    enlargeStrategy: CenterPageEnlargeStrategy.height,
+                      aspectRatio: 1.5,
+                      viewportFraction: 0.9,
+                      enlargeCenterPage: true,
+                      enlargeStrategy: CenterPageEnlargeStrategy.height,
                     ),
                     items: Category.categories
-                    .map((category) => HeroCarouselCard(category: category)).toList(),
-                  )
+                        .map((category) => HeroCarouselCard(category: category))
+                        .toList(),
+                  ),
                 ),
                 const SectionTitle(title: 'RECOMMENDED'),
-                  
-                RecipeCarousel(recipes: Recipe.recipes
-                .where((recipe) => recipe.isRecommended).toList()),
-                  
+                RecipeCarousel(
+                    recipes: Recipe.recipes
+                        .where((recipe) => recipe.isRecommended)
+                        .toList()),
                 const SectionTitle(title: 'MOST POPULAR'),
-                  
-                RecipeCarousel(recipes: Recipe.recipes
-                .where((recipe) => recipe.isPopular).toList()),
-                  
+                RecipeCarousel(
+                    recipes: Recipe.recipes
+                        .where((recipe) => recipe.isPopular)
+                        .toList()),
+                Positioned(
+                  left: 0,
+                  right: 0,
+                  bottom: 16.0,
+                  child: Center(
+                    child: ElevatedButton(
+                      onPressed: () {
+                        Navigator.of(context).pushNamedAndRemoveUntil(
+                        AddRecipeView.routeName, (route) => false);
+                      },
+                      style: ElevatedButton.styleFrom(
+                      backgroundColor: const Color(0xFFE1D0BF),
+                       ),
+                      child: const Text('Add new recipe', style: TextStyle(color: Colors.black),),
+                    ),
+                  ),
+                ),
               ],
             ),
           ),
         ),
       ),
-      ],
-    );
-  }
+    ],
+  );
+}
+
 }
